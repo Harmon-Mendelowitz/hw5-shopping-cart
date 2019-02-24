@@ -1,31 +1,22 @@
 -- add drop table for all your tables if they exist
 -- DROP TABLE IF EXISTS table_name CASCADE;
-drop table if exists products cascade;
-drop table if exists orders cascade;
 drop table if exists cart cascade;
+drop table if exists orders cascade;
 drop table if exists users cascade;
 drop table if exists history cascade;
+drop table if exists products cascade;
 
 -- add create table for all your tabled
 create table users (fname varchar(20), lname varchar(20), username varchar(20) not null, password varchar(20) not null, primary key (username));
 create table products (name varchar(20), pid int(4), price float(5,2), stock int(4), category varchar(20), primary key (pid));
+create table history (orderid int(5), itemid int(4), quantity int(4), primary key (orderid, itemid), 
+                     foreign key(itemid) references products(pid));
 create table orders (username varchar(20), orderdate date, orderid int(5), primary key (username, orderdate),
                      foreign key(username) references users(username), foreign key(orderid) references history(orderid));
-create table history (orderid int(5), itemid int(4), quantity int(4), primary key (orderid), 
-                     foreign key(itemid) references products(pid));
 create table cart (username varchar(20), itemid int(4), quantity int(4), primary key (username, itemid), 
                   foreign key(username) references users(username), foreign key(itemid) references products(pid));
                                                                                                                                  
 -- add insert statements to populate your tables
-INSERT INTO users VALUES ('Joe','j');
-INSERT INTO users VALUES ('Alex','a');
-INSERT INTO users VALUES ('Iris','i');
-
-INSERT INTO orders VALUES ('Alex','1999-01-01','1');
-INSERT INTO orders VALUES ('Iris','2001-01-01','2');
-INSERT INTO orders VALUES ('Iris','2002-02-02','3');
-INSERT INTO orders VALUES ('Iris','2003-03-03','4');
-
 
 INSERT INTO products VALUES ('Oreos','1000','5.99','150','Food');
 INSERT INTO products VALUES ('Milk','1001','3.99','30','Food');
@@ -52,6 +43,11 @@ INSERT INTO products VALUES ('Picture5','3005','50.05','99','Art');
 INSERT INTO products VALUES ('Picture6','3006','50.06','99','Art');
 
 
+INSERT INTO users VALUES ('Joe','Lan','Joe','j');
+INSERT INTO users VALUES ('Alex','Can','Alex','a');
+INSERT INTO users VALUES ('Iris','Lilith','Iris','i');
+
+
 INSERT INTO history VALUES ('1','1000','1');
 INSERT INTO history VALUES ('1','1001','1');
 INSERT INTO history VALUES ('1','1002','1');
@@ -62,5 +58,13 @@ INSERT INTO history VALUES ('3','3000','2');
 INSERT INTO history VALUES ('4','1001','1');
 INSERT INTO history VALUES ('4','2001','2');
 INSERT INTO history VALUES ('4','3001','3');
+
+
+INSERT INTO orders VALUES ('Alex','1999-01-01','1');
+INSERT INTO orders VALUES ('Iris','2001-01-01','2');
+INSERT INTO orders VALUES ('Iris','2002-02-02','3');
+INSERT INTO orders VALUES ('Iris','2003-03-03','4');
+
+
 
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Store</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+  <h2>Products</h2>
+
+  <p>What would you like to view?</p>
+    <form method="post" action="store.php">
+    <label for="category">Category:</label>
+	    <select name="categories">
+		    <option value="none">---</option>
+		    <option value="food">Food</option>
+		    <option value="electronics">Electronics</option>
+                    <option value="art">Art</option>
+	    </select>
+	    <br/>
+    <label for="productname">Name of Product: </label>
+    <input type="text" name="productname" /><br />
+    <input type="submit" value="View" name="submit"/><br/><br/>
+
+    <label for="firstname">Username:</label>
+    <input type="text" name="lusername" /><br/>
+    <label for="firstname">Password:</label>
+    <input type="text" name="lpassword" /><br/>
+
+    <input type="submit" value="Log in" formaction="login.php"/><br/>
+    <br/>
+
+    <p>Fill this out and click 'create account' to make an account:</p>
+
+    <label for="firstname">First Name: </label>
+    <input type="text" name="fname" /><br />
+    <label for="lastname">Last Name: </label>
+    <input type="text" name="lname" /><br />
+    <label for="username">Username: </label>
+    <input type="text" name="uname" /><br />
+    <label for="password">Password: </label>
+    <input type="text" name="password" /><br />
+
+    <input type="submit" value="Create Account" formaction="newacc.php"/>
+
+  </form>
+</body>
+</html>
