@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -23,12 +27,13 @@ $query = "insert into users(fname,lname,username,password) values ('$fname','$la
 
 $result = mysqli_query($conn,$query);
 if($result){
-	echo "New account created successfully <br/>";
+	$_SESSION["newaccount"] = "New account created successfully";
 }
 else{
-	echo "Error: " . $query . "<br/>" . mysqli_error($conn);
+	$_SESSION["newaccount"] = "There was an error creating this account";
 }
-header("Location: http://gwupyterhub.seas.gwu.edu/~mendelowitz/hw5-HarmonMendelowitz/store.html");
+$_SESSION["loginerror"] = null;
+header("Location: http://gwupyterhub.seas.gwu.edu/~mendelowitz/hw5-HarmonMendelowitz/front.php");
 ?>
 
 </body>

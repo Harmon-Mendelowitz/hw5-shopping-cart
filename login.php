@@ -30,15 +30,16 @@ if(mysqli_num_rows($result)>0){
 	echo "Logged in <br/>";
 	$_SESSION["username"] = $luname;
 	$_SESSION["password"] = $lpword;
-	print_r($_SESSION);
+	$_SESSION["loginerror"] = "Hello $luname";
 }
 else{
 	echo "Error: " . $query . "<br/>" . mysqli_error($conn);
-	$_SESSION["username"] = "";
-	$_SESSION["password"] = "";
+	$_SESSION["username"] = null;
+	$_SESSION["password"] = null;
+	$_SESSION["loginerror"] = "Incorrect login information";
 }
-header("Location: http://gwupyterhub.seas.gwu.edu/~mendelowitz/hw5-HarmonMendelowitz/store.html");
-
+$_SESSION["newaccount"] = null;
+header("Location: http://gwupyterhub.seas.gwu.edu/~mendelowitz/hw5-HarmonMendelowitz/front.php");
 ?>
 
 </body>
