@@ -33,6 +33,7 @@ else{
 	$_SESSION["newaccount"] = "There was an error creating this account";
 }
 $_SESSION["loginerror"] = null;
+mysqli_close($conn);
 header("Location: http://gwupyterhub.seas.gwu.edu/~mendelowitz/hw5-HarmonMendelowitz/front.php");
 ?>
 

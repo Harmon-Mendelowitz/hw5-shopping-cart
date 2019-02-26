@@ -65,7 +65,7 @@ if(mysqli_num_rows($result)>0){
 else{
         echo "no items match that discription";
 }
-
+mysqli_close($conn);
 ?>
 </body>
 </html>

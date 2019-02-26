@@ -59,6 +59,7 @@ if(mysqli_num_rows($result)>0){
 else{
         echo "no values match that discription";
 }
+mysqli_close($conn);
 ?>
 </body>
 </html>

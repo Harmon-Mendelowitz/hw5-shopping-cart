@@ -31,7 +31,7 @@ if($result){
 else{
 	echo "There was an error creating this account";
 }
-
+mysqli_close($conn);
 header("Location: http://gwupyterhub.seas.gwu.edu/~mendelowitz/hw5-HarmonMendelowitz/store.php");
 ?>
 

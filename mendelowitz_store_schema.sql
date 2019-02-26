@@ -11,8 +11,8 @@ create table users (fname varchar(20), lname varchar(20), username varchar(20) n
 create table products (name varchar(20), pid int(4), price float(5,2), stock int(4), category varchar(20), primary key (pid));
 create table history (orderid int(5), itemid int(4), quantity int(4), primary key (orderid, itemid), 
                      foreign key(itemid) references products(pid));
-create table orders (username varchar(20), orderdate date, orderid int(5), primary key (username, orderdate),
-                     foreign key(username) references users(username), foreign key(orderid) references history(orderid));
+create table orders (username varchar(20), orderdate date, orderid int(5), primary key (orderid),
+                     foreign key(username) references users(username));
 create table cart (username varchar(20), itemid int(4), quantity int(4), primary key (username, itemid), 
                   foreign key(username) references users(username), foreign key(itemid) references products(pid));
                                                                                                                                  

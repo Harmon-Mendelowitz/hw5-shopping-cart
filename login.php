@@ -39,6 +39,7 @@ else{
 	$_SESSION["loginerror"] = "Incorrect login information";
 }
 $_SESSION["newaccount"] = null;
+mysqli_close($conn);
 header("Location: http://gwupyterhub.seas.gwu.edu/~mendelowitz/hw5-HarmonMendelowitz/front.php");
 ?>
 
