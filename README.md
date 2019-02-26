@@ -1,16 +1,16 @@
 # Homework: PHP Shopping Cart
 
-**Your Name**
- - your_email@gwu.edu
- - your github username
- - your gwupyterhub.seas.gwu.edu link to live webpage
+**Harmon Mendelowitz**
+ - mendelowitz@gwu.edu
+ - HarmonMendelowitz
+ - http://gwupyterhub.seas.gwu.edu/~mendelowitz/hw5-HarmonMendelowitz/front.php
 
 ## Description
 This homework will have you develop a web store application.
 
 ## Deadlines
 - Phase 1: Database ER diagram due 02/20 before lab time via GitHub (please also bring a printed copy to lab).
-  - [ ] Open an issue in your repository when the file is ready for review. Use markdown in the comment to add a link to your file in your local repository
+  - [x] Open an issue in your repository when the file is ready for review. Use markdown in the comment to add a link to your file in your local repository
 - Phase 2: Complete application due 02/26 at 7 pm.
 
 ## Application Requirements
