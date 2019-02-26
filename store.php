@@ -12,14 +12,12 @@ session_start();
 </head>
   <body>
     <h2>Products</h2>
+
 <?php
 
-print_r($_SESSION);
+$u = $_SESSION["username"];
+$p = $_SESSION["password"];
 
-$servername = "localhost";
-$username = "GWnetID";
-$password = "password";
-$dbname = "GWnetID";
 $servername = "localhost";
 $username = "mendelowitz";
 $password = "HmanHman8$";
@@ -30,6 +28,46 @@ if(!$conn){
         die("Connection failed: " . mysqli_connect_error());
 }
 
+if($u !=null)
+{
+	echo "Your Cart <br/>";
+	$query = "select name,price,quantity from cart,products where cart.username='$u' and products.pid=cart.itemid";
+	
+	$result = mysqli_query($conn,$query);
+
+	if(mysqli_num_rows($result)>0){
+        while($row = mysqli_fetch_assoc($result)){
+                echo $row["name"].", price: $". $row["price"].", quantity: ". $row["quantity"]."<br>";
+        }
+	}
+	else{
+        	echo "there are no items in your cart <br/><br/>";
+	}
+
+}
+
+?>
+<br/>
+<br/>
+<form action="addtocart.php" name="adding" method="post">
+    <label for="addp">Add to the cart (item name, quantity): </label>
+    <input type="text" name="pan" />
+    <input type="text" name="paq" />
+    <input type="submit" value="Add" /><br/>
+<form/>
+
+    <label for="remp">Remove an item from the cart (item name): </label>
+    <input type="text" name="prn" />
+    <input type="submit" value="Remove" formaction="remfromcart.php"/><br/>
+
+    <label for="delc">Delete the cart: </label>
+    <input type="submit" value="Delete" formaction="delcart.php"/><br/>
+
+    <label for="complete">Checkout: </label>
+    <input type="submit" value="Checkout" formaction="checkout.php"/><br/>
+
+<br/>
+<?php
 $categories = $_POST['categories'];
 $pname = $_POST['productname'];
 

@@ -59,6 +59,8 @@ echo '<span class="error">' . $_SESSION["newaccount"] . '</span><br>';
 
     <input type="submit" value="Create Account" formaction="newacc.php"/>
 
+    <input type="submit" value="View Order History" formaction="orders.php"/>
+
   </form>
  </body>
 </html>
