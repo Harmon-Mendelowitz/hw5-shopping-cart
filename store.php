@@ -54,22 +54,28 @@ if($u !=null)
     <input type="text" name="pan" />
     <input type="text" name="paq" />
     <input type="submit" value="Add" /><br/>
-<form/>
+</form>
 
+<form action="remfromcart.php" name="removing" method="post">
     <label for="remp">Remove an item from the cart (item name): </label>
     <input type="text" name="prn" />
-    <input type="submit" value="Remove" formaction="remfromcart.php"/><br/>
+    <input type="submit" value="Remove"/><br/>
+</form>
 
+<form action="delcart.php" name="deleting" method="post">
     <label for="delc">Delete the cart: </label>
-    <input type="submit" value="Delete" formaction="delcart.php"/><br/>
+    <input type="submit" value="Delete"/><br/>
+</form>
 
+<form action="checkout.php" name="checking" method="post">
     <label for="complete">Checkout: </label>
-    <input type="submit" value="Checkout" formaction="checkout.php"/><br/>
+    <input type="submit" value="Checkout"/><br/>
+</form>
 
 <br/>
 <?php
-$categories = $_POST['categories'];
-$pname = $_POST['productname'];
+$categories = $_SESSION["c"];
+$pname = $_SESSION["pn"];
 
 if($pname == '')
 {
@@ -95,9 +101,9 @@ if(mysqli_num_rows($result)>0){
 	}
 }
 else{
-        echo "no items match that discription";
+        echo "no items match that description";
 }
-mysqli_close($conn);
+
 ?>
 </body>
 </html>

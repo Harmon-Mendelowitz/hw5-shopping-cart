@@ -25,7 +25,7 @@ echo '<span class="error">' . $_SESSION["newaccount"] . '</span><br>';
 <h2>Products</h2>
 
   <p>What would you like to view?</p>
-    <form method="post" action="store.php">
+    <form method="post" action="catpro.php">
     <label for="category">Category:</label>
 	    <select name="categories">
 		    <option value="none">---</option>

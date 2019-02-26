@@ -22,10 +22,29 @@ if(!$conn){
         die("Connection failed: " . mysqli_connect_error());
 }
 
-$pnameid = "select pid from products where name='$pname'";
+$pnameid = "select pid from products where products.name='$pname'";
 $r = mysqli_query($conn,$pnameid);
+$row = mysqli_fetch_assoc($r);
+$rrr = (int)$row["pid"];
 
-$query = "INSERT INTO cart (username, itemid, quantity) VALUES ('$u',$rrr,(int)$pquantity)";
+
+$pq = (int)$pquantity;
+
+$maxs = "select stock from products where products.name='$pname'";
+$ms = mysqli_query($conn,$maxs);
+$rowofs = mysqli_fetch_assoc($ms);
+$maxstock = (int)$rowofs["stock"];
+
+if($pq<0)
+{
+	$pq=1;
+}
+if($pq>$maxstock)
+{
+	$pq=$maxstock;
+}
+
+$query = "INSERT INTO cart (username, itemid, quantity) VALUES ('$u',$rrr,$pq)";
 
 $result = mysqli_query($conn,$query);
 
