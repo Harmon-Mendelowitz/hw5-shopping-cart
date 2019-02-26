@@ -25,12 +25,18 @@ if(!$conn){
 /*$query = "update products set stock = 'stock - quantity' where cart.username='$u' and cart.itemid=pid";
 mysqli_query($conn,$query);*/
 
-$qwe = "select stock,quantity from products,cart where pid=cart.itemid and cart.username='$u'";
+$qwe = "select stock,quantity,pid from products,cart where pid=cart.itemid and cart.username='$u'";
 $asd = mysqli_query($conn, $qwe);
 
 if(mysqli_num_rows($asd)>0){
 	while($rowww = mysqli_fetch_assoc($asd)){
-		echo $rowww["stock"] - $rowww["quantity"];
+		$sssss = (int)$rowww["stock"];
+		$qqqqq = (int)$rowww["quantity"];
+		$sqsq = (int)($sssss - $qqqqq);
+		$pidp = (int)$rowww["pid"];
+
+		$upd = "update products set stock = $sqsq where pid = $pidp";
+		mysqli_query($conn, $upd);
 	}
 }
 else{
